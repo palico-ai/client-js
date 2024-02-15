@@ -24,7 +24,7 @@ export const createClient = (config: ClientConfig): IPalicoClient => {
     const data = await response.json()
     if (response.status !== 200) {
       console.error(data)
-      throw new Error('Failed to start new conversation.')
+      throw new Error(JSON.stringify(data, null, 2))
     }
     return data
   }
@@ -44,7 +44,7 @@ export const createClient = (config: ClientConfig): IPalicoClient => {
     const data = await response.json()
     if (response.status !== 200) {
       console.error(data)
-      throw new Error('Failed to reply as user.')
+      throw new Error(JSON.stringify(data, null, 2))
     }
     return data
   }
@@ -64,7 +64,7 @@ export const createClient = (config: ClientConfig): IPalicoClient => {
     const data = await response.json()
     if (response.status !== 200) {
       console.error(data)
-      throw new Error('Failed to reply to tool call.')
+      throw new Error(JSON.stringify(data, null, 2))
     }
     return data
   }
